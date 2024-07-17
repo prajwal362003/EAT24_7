@@ -1,17 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import AppLayout from './App'; // Import your main component
+import appRouter from "../src/App";
+import {RouterProvider} from "react-router-dom"
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+// Find the root DOM element where your React application will be mounted
+const rootElement = document.getElementById('root');
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+// Create a root ReactDOM fiber for concurrent mode rendering
+const root = ReactDOM.createRoot(rootElement);
+
+// Render the main component (<AppLayout />) into the root container
+root.render(<RouterProvider router = {appRouter}/>);
